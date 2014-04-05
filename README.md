@@ -1,75 +1,65 @@
 # Dragonfly
 
-## The rockstart official videowall
+The rockstart official videowall.
 
-Nothing to see here for the moment.
-Go get caught by the dragonfly gaze.
+## Architecture
 
 ### The Architect
 
 `10.10.221.100`
 
 ### The Executors
-Pi #1
-`10.10.221.101`
 
-Pi #2
-`10.10.221.102`
+Pi #1: `10.10.221.101`
 
-Pi #3
-`10.10.221.103`
+Pi #2: `10.10.221.102`
 
-Pi #4
-`10.10.221.104`
+Pi #3: `10.10.221.103`
 
-Pi #5
-`10.10.221.105`
+Pi #4: `10.10.221.104`
 
-Pi #6
-`10.10.221.106`
+Pi #5: `10.10.221.105`
 
-Pi #7
-`10.10.221.107`
+Pi #6: `10.10.221.106`
 
-Pi #8
-`10.10.221.108`
+Pi #7: `10.10.221.107`
 
-Pi #9
-`10.10.221.109`
+Pi #8: `10.10.221.108`
 
-Pi #0
-`10.10.221.110`
+Pi #9: `10.10.221.109`
 
-Pi #1
-`10.10.221.111`
+Pi #10: `10.10.221.110`
 
-Pi #2
-`10.10.221.112`
+Pi #11: `10.10.221.111`
 
-### Commands 
+Pi #12: `10.10.221.112`
 
-#### Client
+## Usage
 
-pwomxplayer --tile-code=bez_41 udp://239.0.1.23:1234?buffer_size=1200000B 
+Get into the executors and initialize the streaming
 
-#### Server
+```bash
+pwomxplayer --tile-code=bez_41 udp://239.0.1.23:1234?buffer_size=1200000B
+```
 
+Get into the architect and streams to every
+
+```bash
 avconv -re -i movie.mp4 -vcodec copy -f avi -an udp://239.0.1.23:1234
+```
 
+## Add an executor
 
-# TODO: clean up
+### Install PiWall
 
-# install piwall on raspberry
+```bash
 wget http://dl.piwall.co.uk/pwlibs1_1.1_armhf.deb
 dpkg -i /home/pi/pwlibs1_1.1_armhf.deb
 wget http://dl.piwall.co.uk/pwomxplayer_20130815_armhf.deb
 sudo dpkg -i /home/pi/pwomxplayer_20130815_armhf.deb
+```
 
-# configure dedicated subnet
+### Configure dedicated subnet
+```
 sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth0
-
-# command server
-avconv -re -i WappZapp\ -\ TV\ for\ the\ on-demand\ generation-82570068.mp4 -vcodec copy -f avi -an udp://239.0.1.23:1234
-
-# command client
-pwomxplayer --tile-code=bez_41 udp://239.0.1.23:1234?buffer_size=1200000B 
+```
