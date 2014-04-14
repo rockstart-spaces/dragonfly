@@ -64,7 +64,13 @@ sudo dpkg -i /home/pi/pwomxplayer_20130815_armhf.deb
 sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth0
 ```
 
-
 # Recode
 
 avconv -i bbb_sunflower_1080p_30fps_normal.mp4 -vcodec mpeg4 -qscale 8 -r 30 -acodec copy bbb_sunflower_1080p_30fps_normal.avi
+
+# TODO
+
+- frontend
+- backend
+- everything
+- 42
