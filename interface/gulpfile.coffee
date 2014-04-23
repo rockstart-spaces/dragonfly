@@ -17,6 +17,7 @@ gulp.task 'coffee', ->
     .on 'error', plugins.util.log
   .pipe plugins.concat 'app.js'
   .pipe gulp.dest './build'
+  .pipe plugins.filesize()
 
 gulp.task 'less', ->
   gulp
@@ -25,6 +26,7 @@ gulp.task 'less', ->
   .pipe plugins.less compress: on, cleancss: on
     .on 'error', plugins.util.log
   .pipe gulp.dest './build'
+  .pipe plugins.filesize()
 
 gulp.task 'templates', ->
   # combine all template files of the app into a js file
@@ -37,6 +39,7 @@ gulp.task 'templates', ->
     module: 'dragonfly-templates'
     standalone: true
   .pipe gulp.dest './build'
+  .pipe plugins.filesize()
 
 gulp.task 'jade', ->
   gulp
@@ -62,6 +65,7 @@ gulp.task 'vendor-js', ->
   ]
   .pipe plugins.concat 'lib.js'
   .pipe gulp.dest './build'
+  .pipe plugins.filesize()
 
 gulp.task 'vendor-css', ->
   # concatenate vendor CSS files
@@ -72,6 +76,7 @@ gulp.task 'vendor-css', ->
   ]
   .pipe plugins.concat 'lib.css'
   .pipe gulp.dest './build'
+  .pipe plugins.filesize()
 
 gulp.task 'watch', ->
   gulp.watch './app/**/*.coffee', ['coffee']

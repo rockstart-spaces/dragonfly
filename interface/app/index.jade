@@ -7,15 +7,25 @@ html(lang='en')
     link(href='lib.css', rel='stylesheet')
     link(href='app.css', rel='stylesheet')
   body(ng-app='dragonfly', ng-controller='MainController')
+    .background
+    .dim
     main.main.container
       .row
-        .col-sm-6.col-sm-offset-3.text-center
+        .col-sm-4.col-sm-offset-4.text-center
           img(src='img/rockstart.png', class='img-responsive')
-          h1 Dragonfly
+      .row
+        .col-sm-6.col-sm-offset-3.text-center
+          h1.h4 Dragonfly
 
-          form
+          form(autocomplete='off')
             .form-group
-              input.form-control.input-lg(type='text', name='search', autofocus, autocomplete='off')
-              span.input-icon.fui-search
+              input.form-control.input-lg(type='text', name='search', placeholder='Search a video', autofocus, ng-model='searchQuery')
+
+      a.media(href='#' ng-repeat='video in videos' ng-click='play(video)' class='video')
+        .pull-left
+          img.media-object(ng-src='{{ video.thumbnail }}')
+        .media-body
+          h4.media-heading {{ video.name }}
+          div {{ video.description }}
     script(src='lib.js')
     script(src='app.js')

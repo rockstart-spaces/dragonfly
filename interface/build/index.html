@@ -8,17 +8,27 @@
     <link href="app.css" rel="stylesheet">
   </head>
   <body ng-app="dragonfly" ng-controller="MainController">
+    <div class="background"></div>
+    <div class="dim"></div>
     <main class="main container">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 text-center"><img src="img/rockstart.png" class="img-responsive">
-          <h1>Dragonfly</h1>
-          <form>
+        <div class="col-sm-4 col-sm-offset-4 text-center"><img src="img/rockstart.png" class="img-responsive"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+          <h1 class="h4">Dragonfly</h1>
+          <form autocomplete="off">
             <div class="form-group">
-              <input type="text" name="search" autofocus autocomplete="off" class="form-control input-lg"><span class="input-icon fui-search"></span>
+              <input type="text" name="search" placeholder="Search a video" autofocus ng-model="searchQuery" class="form-control input-lg">
             </div>
           </form>
         </div>
-      </div>
+      </div><a href="#" ng-repeat="video in videos" ng-click="play(video)" class="media video">
+        <div class="pull-left"><img ng-src="{{ video.thumbnail }}" class="media-object"></div>
+        <div class="media-body">
+          <h4 class="media-heading">{{ video.name }}</h4>
+          <div>{{ video.description }}</div>
+        </div></a>
     </main>
     <script src="lib.js"></script>
     <script src="app.js"></script>

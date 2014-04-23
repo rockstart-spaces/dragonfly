@@ -1,13 +1,62 @@
 @import 'flat-ui';
+@import 'animations.less';
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   font-weight: 300;
 }
 
+.background,
+.dim {
+  content: "";
+  position: absolute;
+  .square(100%);
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .85);
+  z-index: -1;
+}
+
+.background {
+  background: url('img/background.jpg') no-repeat center / cover;
+  .animation(fade-in 2s both);
+}
+
+.dim {
+  .animation(fade-in 2s 2s both);
+}
+
+.main {
+  .animation(fade-in-down 2s 2s both);
+}
+
 input[name='search'] {
   .input-size(@input-height-large * 2; 10px; 15px; @input-font-size-large * 2; @input-line-height-large * 2);
+  color: @text-color;
+  background-color: transparent;
+  border-color: @brand-primary;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  text-align: center;
 
-  + .input-icon {
+  &:focus {
+    border-color: inherit;
+  }
+}
 
+.video {
+  display: block;
+  max-height: 90px;
+  overflow: hidden;
+  color: inherit;
+
+  &:hover {
+    color: @brand-primary;
   }
 }
