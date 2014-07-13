@@ -1,0 +1,8 @@
+Django==1.6
+South
+requests
+docutils
+markdown
+django-filter
+djangorestframework
+django-cors-headers

@@ -68,9 +68,34 @@ sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth0
 
 avconv -i bbb_sunflower_1080p_30fps_normal.mp4 -vcodec mpeg4 -qscale 8 -r 30 -acodec copy bbb_sunflower_1080p_30fps_normal.avi
 
+
+# Backend 
+
+Once:
+```bash
+cd piwall
+sudo pip install -r requirements.txt
+python manage.py syncdb
+python manage.py schemamigration api --initial
+python manage.py migrate api
+```
+
+Starting test server:
+```bash
+python manage.py runserver
+```
+
+Browser-navigatable API at http://localhost:8000
+
+Admin interface at http://localhost:8000/admin
+
+Still much to do though.
+
+
 # TODO
 
 - frontend
 - backend
+- coupling scripts with backend
 - everything
 - 42
