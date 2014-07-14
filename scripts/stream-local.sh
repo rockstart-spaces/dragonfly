@@ -1,0 +1,1 @@
+dsh -Ma -c "pwomxplayer --config=dragonfly_config $1"

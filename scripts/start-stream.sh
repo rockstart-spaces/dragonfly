@@ -1,0 +1,1 @@
+dsh -Ma -c "pwomxplayer --config=dragonfly_config udp://239.0.1.23:1234?buffer_size=262144B"

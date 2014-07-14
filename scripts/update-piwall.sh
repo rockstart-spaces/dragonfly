@@ -1,0 +1,12 @@
+scp .piwall 10.10.221.101:/home/pi/.piwall
+scp .piwall 10.10.221.102:/home/pi/.piwall
+scp .piwall 10.10.221.103:/home/pi/.piwall
+scp .piwall 10.10.221.104:/home/pi/.piwall
+scp .piwall 10.10.221.105:/home/pi/.piwall
+scp .piwall 10.10.221.106:/home/pi/.piwall
+scp .piwall 10.10.221.107:/home/pi/.piwall
+scp .piwall 10.10.221.108:/home/pi/.piwall
+scp .piwall 10.10.221.109:/home/pi/.piwall
+scp .piwall 10.10.221.110:/home/pi/.piwall
+scp .piwall 10.10.221.111:/home/pi/.piwall
+scp .piwall 10.10.221.112:/home/pi/.piwall
