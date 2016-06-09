@@ -5,10 +5,10 @@ import sys
 import glob
 
 nr = int(sys.argv[1]) if len(sys.argv) > 1 else 11
-roots = glob.glob('/media/{}/*/'.format(os.environ.get('USER', 'root')))
+roots = glob.glob('/media/*/*/')
 
 if not roots:
-    print("ERROR: can't find anything inside /media/martijn")
+    print("ERROR: can't find anything inside /media/martijn", roots)
     sys.exit()
 root = roots[0]
 
@@ -24,4 +24,4 @@ for d, sub_dirs, filenames in os.walk('templates'):
         with open(destination, 'w') as fp:
             print("WRITING", destination, ":")
             print(contents)
-            #fp.write(contents)
+            fp.write(contents)
