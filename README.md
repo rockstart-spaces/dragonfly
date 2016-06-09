@@ -69,6 +69,20 @@ sudo route add -net 224.0.0.0 netmask 240.0.0.0 eth0
 avconv -i bbb_sunflower_1080p_30fps_normal.mp4 -vcodec mpeg4 -qscale 8 -r 30 -acodec copy bbb_sunflower_1080p_30fps_normal.avi
 
 
+# Clone SD cards
+Once you have a working SD card, it's easiest to clone the card to get more.
+
+Run as root:
+
+```bash
+# make backup
+dd if=/dev/mmcblk0 of=videowall.img
+# for each card, do:
+dd of=/dev/mmcblk0 if=videowall.img
+# mount at /media/{USER}/{foo} (or just re-insert), then:
+./scripts/set_number.py SCREEN_NUMBER
+```
+
 # Backend 
 
 Once:
